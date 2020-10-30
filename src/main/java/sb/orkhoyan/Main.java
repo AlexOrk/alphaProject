@@ -27,7 +27,7 @@ public class Main {
             Path path = Paths.get(pathStr);
             path.register(watchService, StandardWatchEventKinds.ENTRY_CREATE);
 
-            System.out.println("Directory monitoring starts.");
+            ConsoleEventLogger.println("Directory monitoring starts.");
 
             WatchKey key;
             while ((key = watchService.take()) != null) {
@@ -55,7 +55,7 @@ public class Main {
             logger.debug(e.getMessage());
             e.printStackTrace();
         }
-        System.out.println("The program was ended.");
+        ConsoleEventLogger.println("The program was ended.");
     }
 }
 
