@@ -44,12 +44,16 @@ public final class Process {
     public static void startSelectedHandler(String fileName) {
         Handler handler = null;
 
-        if (fileName.endsWith(".xml"))
+        if (fileName.endsWith(".xml")) {
             handler = new XmlHandler(fileName);
+            System.out.println(1);
+        }
         else if (fileName.endsWith(".json"))
             handler = new JsonHandler(fileName);
-        else
+        else {
             handler = new DeleteHandler(fileName);
+            System.out.println(2);
+        }
 
         Thread thread = new Thread(handler);
         thread.setDaemon(true);
@@ -60,7 +64,7 @@ public final class Process {
     public static void doSomeWork(String fileName) {
         try {
             long lines = Files.lines(Paths.get(Main.pathStr + Main.separator + fileName)).count();
-            logger.info(lines + " lines in the file is.");
+            logger.info("Lines in the file: " + lines);
         } catch (IOException e) {
             logger.debug(e.getMessage());
             e.printStackTrace();

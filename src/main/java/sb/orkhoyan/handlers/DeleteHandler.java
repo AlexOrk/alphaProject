@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import sb.orkhoyan.ConsoleEventLogger;
 import sb.orkhoyan.Main;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -21,7 +22,7 @@ public class DeleteHandler implements Handler {
     @Override
     public void run() {
         try {
-            Files.delete(Paths.get(Main.pathStr + Main.separator + fileName));
+            Files.delete(Paths.get(sb.orkhoyan.Main.pathStr + Main.separator + fileName));
             ConsoleEventLogger.println("File was deleted!\n");
         } catch (IOException e) {
             logger.debug(e.getMessage());

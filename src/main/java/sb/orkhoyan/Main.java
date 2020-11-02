@@ -44,7 +44,7 @@ public class Main {
 
                     long start = System.currentTimeMillis();
                     // Depending on the file, a handler is selected and started
-                    Process.startSelectedHandler(pathStr);
+                    Process.startSelectedHandler(fileName);
 
                     long finish = System.currentTimeMillis();
                     logger.info("Total file handling time is " + (finish - start) + " millis.");
