@@ -22,8 +22,7 @@ public class Main {
         // By default, this is the "demo" directory.
         pathStr = Process.askPath(pathStr);
 
-        try {
-            WatchService watchService = FileSystems.getDefault().newWatchService();
+        try(WatchService watchService = FileSystems.getDefault().newWatchService()) {
             Path path = Paths.get(pathStr);
             path.register(watchService, StandardWatchEventKinds.ENTRY_CREATE);
 
